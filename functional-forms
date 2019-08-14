@@ -1,0 +1,11 @@
+## Test a linear specification (x), a log (I(log(x))) and a square I(x^2))
+library(PanJen)
+data("dataset")
+form<-formula(lprice ~.)
+fxlist= list(
+linear = function(x) x,
+sqr = function(x) x^2,
+log=function(x) log(x)
+)
+#compare between models
+PanJenAreaC<-choose.fform(data=hvidovre,variable="area",base_form=form, functionList=fxlist)
